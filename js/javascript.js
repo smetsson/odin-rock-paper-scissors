@@ -1,11 +1,3 @@
-console.log("Hello World!");
-
-// Create variable for computerSelection
-let computerSelection;
-
-// Create variable for playerSelection
-let playerSelection;
-
 // Create variable for computerScore
 let computerScore;
 
