@@ -6,6 +6,12 @@ let computerSelection
 // Create variable for playerSelection
 let playerSelection
 
+// Create variable for computerScore
+let computerScore
+
+// Create variable for playerScore
+let playerScore
+
 // Generate computer choice (rock, paper, scissors) and save in computerSelection
 function getComputerChoice() {
     let i = Math.random()
@@ -75,25 +81,28 @@ function playRound(playerSelection, computerSelection) {
     // Show score every loop
     // Show winner or loser at the end of the 5th loop
 
+function checkScore(roundOutcome) {
+    if (roundOutcome === "You Win! Rock beats Scissors" || 
+        roundOutcome === "You Win! Scissors beats Paper" ||
+        roundOutcome === "You Win! Paper beats Rock" ) {
+    scorePlayer++
+
+    } else if (roundOutcome === "You Lose! Rock beats Scissors" ||
+               roundOutcome === "You Lose! Scissors beats Paper" ||
+               roundOutcome === "You Lose! Paper beats Rock") {
+    scoreComputer++
+    }
+
+    console.log(`Score player: ${scorePlayer} - Score computer ${scoreComputer}`)
+}
+
 function playGame() {
-    let scorePlayer = 0;
-    let scoreComputer = 0;
+    scorePlayer = 0;
+    scoreComputer = 0;
     for (let i = 0; i < 5; i++) {
         let roundOutcome = playRound(getPlayerChoice(), getComputerChoice());
         console.log(roundOutcome)
-        
-        if (roundOutcome === "You Win! Rock beats Scissors" || 
-            roundOutcome === "You Win! Scissors beats Paper" ||
-            roundOutcome === "You Win! Paper beats Rock" ) {
-            scorePlayer++
-
-        } else if (roundOutcome === "You Lose! Rock beats Scissors" ||
-                   roundOutcome === "You Lose! Scissors beats Paper" ||
-                   roundOutcome === "You Lose! Paper beats Rock") {
-            scoreComputer++
-
-        } 
-        console.log(`Score player: ${scorePlayer} - Score computer ${scoreComputer}`)
+        checkScore(roundOutcome)
     }
     
     if (scorePlayer > scoreComputer) {
