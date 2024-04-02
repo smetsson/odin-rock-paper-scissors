@@ -11,26 +11,27 @@ function getComputerChoice() {
     let i = Math.random()
     console.log(i);
     if (i < 0.333) {
-        return "rock";
+        return "Rock";
     } else if ( i >= 0.333 && i <= 0.666) {
-        return "paper";
+        return "Paper";
     } else {
-    return "scissors";
+        return "Scissors";
     }
 }
 
 function getComputerChoice2() {
     let i = Math.random()
     console.log(i);
-    return (i < 0.333) ? "rock" 
-    : (i >= 0.333 && i <= 0.666) ? "paper"
-    : "scissors";
+    return (i < 0.333) ? "Rock" 
+    : (i >= 0.333 && i <= 0.666) ? "Paper"
+    : "Scissors";
 }
 
 // Get player choice (rock, paper, scissors -> case-insensitive) and save in playerChoice
 function getPlayerChoice() {
-    let playerSelection = prompt("Rock, paper or scissors?", "Rock").toLowerCase();
-    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+    let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
+    playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+    if (playerSelection === "Rock" || playerSelection === "Paper" || playerSelection === "Scissors") {
         return playerSelection;
     } else {
         alert("Incorrect input");
@@ -38,8 +39,9 @@ function getPlayerChoice() {
 }
 
 let getPlayerChoice2 = () => {
-    let playerSelection = prompt("Rock, paper or scissors?", "Rock").toLowerCase();
-    return (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") 
+    let playerSelection = prompt("Rock, Paper or Scissors?", "Rock");
+    playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+    return (playerSelection === "Rock" || playerSelection === "Paper" || playerSelection === "Scissors") 
     ? playerSelection 
     : alert("Incorrect input");
 }
@@ -52,23 +54,21 @@ let getPlayerChoice2 = () => {
     // Show win or lose message
 
 function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection);
-    console.log(computerSelection);
     switch (true) {
-        case (playerSelection === "rock" && computerSelection === "scissors"):
-        case (playerSelection === "scissors" && computerSelection === "paper"):
-        case (playerSelection === "paper" && computerSelection === "rock"):
+        case (playerSelection === "Rock" && computerSelection === "Scissors"):
+        case (playerSelection === "Scissors" && computerSelection === "Paper"):
+        case (playerSelection === "Paper" && computerSelection === "Rock"):
             return `You Win! ${playerSelection} beats ${computerSelection}`;
             break;
         
-        case (playerSelection === "scissors"&& computerSelection === "rock"):
-        case (playerSelection === "paper" && computerSelection === "scissors"):
-        case (playerSelection === "rock" && computerSelection === "paper"):
-            return `You Lose! ${computerSelection} beats ${playerSelection}`
+        case (playerSelection === "Scissors" && computerSelection === "Rock"):
+        case (playerSelection === "Paper" && computerSelection === "Scissors"):
+        case (playerSelection === "Rock" && computerSelection === "Paper"):
+            return `You Lose! ${computerSelection} beats ${playerSelection}`;
             break;
             
         default:
-            return `A Tie! ${playerSelection} equals ${computerSelection}`    
+            return `A Tie! ${playerSelection} equals ${computerSelection}`; 
     }    
 }
 
