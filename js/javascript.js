@@ -72,11 +72,15 @@ function playRound(playerSelection, computerSelection) {
     }    
 }
 
-playerSelection = getPlayerChoice();
-computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
 // Create a gaming session that loops the Rock Paper Scissors game 5 times
     // Keep score every loop
     // Show score every loop
     // Show winner or loser at the end of the 5th loop
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let roundOutcome = playRound(getPlayerChoice(), getComputerChoice());
+        console.log(roundOutcome)
+        // console.log(round);
+    }
+}
