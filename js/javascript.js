@@ -78,9 +78,31 @@ function playRound(playerSelection, computerSelection) {
     // Show winner or loser at the end of the 5th loop
 
 function playGame() {
+    let scorePlayer = 0;
+    let scoreComputer = 0;
     for (let i = 0; i < 5; i++) {
         let roundOutcome = playRound(getPlayerChoice(), getComputerChoice());
         console.log(roundOutcome)
-        // console.log(round);
+        
+        if (roundOutcome === "You Win! Rock beats Scissors" || 
+            roundOutcome === "You Win! Scissors beats Paper" ||
+            roundOutcome === "You Win! Paper beats Rock" ) {
+            scorePlayer++
+
+        } else if (roundOutcome === "You Lose! Rock beats Scissors" ||
+                   roundOutcome === "You Lose! Scissors beats Paper" ||
+                   roundOutcome === "You Lose! Paper beats Rock") {
+            scoreComputer++
+
+        } 
+        console.log(`Score player: ${scorePlayer} - Score computer ${scoreComputer}`)
+    }
+    
+    if (scorePlayer > scoreComputer) {
+        console.log("Player wins the game!")
+    } else if (scorePlayer < scoreComputer) {
+        console.log("Computer wins the game!")
+    } else {
+        console.log("Game is a tie!")
     }
 }
