@@ -43,12 +43,39 @@ let getPlayerChoice2 = () => {
     ? playerSelection 
     : alert("Incorrect input");
 }
+
 // Evaluate playerChoice versus computerChoice
     // Same choice means tie
     // Rock beats scissors
     // Scissors beat paper
     // Paper beats rock
     // Show win or lose message
+
+function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection);
+    console.log(computerSelection);
+    switch (true) {
+        case (playerSelection === "rock" && computerSelection === "scissors"):
+        case (playerSelection === "scissors" && computerSelection === "paper"):
+        case (playerSelection === "paper" && computerSelection === "rock"):
+            return `You Win! ${playerSelection} beats ${computerSelection}`;
+            break;
+        
+        case (playerSelection === "scissors"&& computerSelection === "rock"):
+        case (playerSelection === "paper" && computerSelection === "scissors"):
+        case (playerSelection === "rock" && computerSelection === "paper"):
+            return `You Lose! ${computerSelection} beats ${playerSelection}`
+            break;
+            
+        default:
+            return `A Tie! ${playerSelection} equals ${computerSelection}`    
+    }    
+}
+
+playerSelection = getPlayerChoice();
+computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
+
 // Create a gaming session that loops the Rock Paper Scissors game 5 times
     // Keep score every loop
     // Show score every loop
