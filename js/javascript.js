@@ -9,7 +9,6 @@ let playerSelection
 // Generate computer choice (rock, paper, scissors) and save in computerSelection
 function getComputerChoice() {
     let i = Math.random()
-    console.log(i);
     if (i < 0.333) {
         return "Rock";
     } else if ( i >= 0.333 && i <= 0.666) {
@@ -21,7 +20,6 @@ function getComputerChoice() {
 
 function getComputerChoice2() {
     let i = Math.random()
-    console.log(i);
     return (i < 0.333) ? "Rock" 
     : (i >= 0.333 && i <= 0.666) ? "Paper"
     : "Scissors";
