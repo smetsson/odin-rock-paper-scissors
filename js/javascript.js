@@ -28,6 +28,21 @@ function getComputerChoice2() {
 }
 
 // Get player choice (rock, paper, scissors -> case-insensitive) and save in playerChoice
+function getPlayerChoice() {
+    let playerSelection = prompt("Rock, paper or scissors?", "Rock").toLowerCase();
+    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+        return playerSelection;
+    } else {
+        alert("Incorrect input");
+    }
+}
+
+let getPlayerChoice2 = () => {
+    let playerSelection = prompt("Rock, paper or scissors?", "Rock").toLowerCase();
+    return (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") 
+    ? playerSelection 
+    : alert("Incorrect input");
+}
 // Evaluate playerChoice versus computerChoice
     // Same choice means tie
     // Rock beats scissors
