@@ -1,20 +1,20 @@
-console.log("Hello World!")
+console.log("Hello World!");
 
 // Create variable for computerSelection
-let computerSelection
+let computerSelection;
 
 // Create variable for playerSelection
-let playerSelection
+let playerSelection;
 
 // Create variable for computerScore
-let computerScore
+let computerScore;
 
 // Create variable for playerScore
-let playerScore
+let playerScore;
 
 // Generate computer choice (rock, paper, scissors) and save in computerSelection
 function getComputerChoice() {
-    let i = Math.random()
+    let i = Math.random();
     if (i < 0.333) {
         return "Rock";
     } else if ( i >= 0.333 && i <= 0.666) {
@@ -25,7 +25,7 @@ function getComputerChoice() {
 }
 
 function getComputerChoice2() {
-    let i = Math.random()
+    let i = Math.random();
     return (i < 0.333) ? "Rock" 
     : (i >= 0.333 && i <= 0.666) ? "Paper"
     : "Scissors";
@@ -85,15 +85,25 @@ function checkScore(roundOutcome) {
     if (roundOutcome === "You Win! Rock beats Scissors" || 
         roundOutcome === "You Win! Scissors beats Paper" ||
         roundOutcome === "You Win! Paper beats Rock" ) {
-    scorePlayer++
+    scorePlayer++;
 
     } else if (roundOutcome === "You Lose! Rock beats Scissors" ||
                roundOutcome === "You Lose! Scissors beats Paper" ||
                roundOutcome === "You Lose! Paper beats Rock") {
-    scoreComputer++
+    scoreComputer++;
     }
 
-    console.log(`Score player: ${scorePlayer} - Score computer ${scoreComputer}`)
+    console.log(`Score player: ${scorePlayer} - Score computer ${scoreComputer}`);
+}
+
+function checkWinner() {
+    if (scorePlayer > scoreComputer) {
+        console.log("Player wins the game!");
+    } else if (scorePlayer < scoreComputer) {
+        console.log("Computer wins the game!");
+    } else {
+        console.log("Game is a tie!");
+    }
 }
 
 function playGame() {
@@ -101,15 +111,8 @@ function playGame() {
     scoreComputer = 0;
     for (let i = 0; i < 5; i++) {
         let roundOutcome = playRound(getPlayerChoice(), getComputerChoice());
-        console.log(roundOutcome)
-        checkScore(roundOutcome)
+        console.log(roundOutcome);
+        checkScore(roundOutcome);
     }
-    
-    if (scorePlayer > scoreComputer) {
-        console.log("Player wins the game!")
-    } else if (scorePlayer < scoreComputer) {
-        console.log("Computer wins the game!")
-    } else {
-        console.log("Game is a tie!")
-    }
+    checkWinner();
 }
