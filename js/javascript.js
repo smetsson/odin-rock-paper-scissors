@@ -1,7 +1,11 @@
 console.log("Hello World!")
 
 // Create variable for computerSelection
+let computerSelection
+
 // Create variable for playerSelection
+let playerSelection
+
 // Generate computer choice (rock, paper, scissors) and save in computerSelection
 // Get player choice (rock, paper, scissors -> case-insensitive) and save in playerChoice
 // Evaluate playerChoice versus computerChoice
